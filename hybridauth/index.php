@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
 * HybridAuth
 * http://hybridauth.sourceforge.net | http://github.com/hybridauth/hybridauth
