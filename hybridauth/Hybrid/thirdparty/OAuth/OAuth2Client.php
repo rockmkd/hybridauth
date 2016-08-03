@@ -70,7 +70,8 @@ class OAuth2Client
   {
     $params = array(
       "client_id"     => $this->client_id,
-      "client_secret" => $this->client_secret,
+	  // TODO 
+      //"client_secret" => $this->client_secret,
       "grant_type"    => "authorization_code",
       "redirect_uri"  => $this->redirect_uri,
       "code"          => $code
@@ -141,9 +142,10 @@ class OAuth2Client
       case 'DELETE' : $response = $this->request( $url, $parameters, "DELETE" ); break;
       case 'PATCH'  : $response = $this->request( $url, $parameters, "PATCH" ); break;
     }
-
+	
     if( $response && $decode_json ){
-      return $this->response = json_decode( $response );
+      $this->response = json_decode( $response );
+	  return $this->response; 
     }
 
     return $this->response = $response;
@@ -230,10 +232,12 @@ class OAuth2Client
     if($this->curl_proxy){
       curl_setopt( $ch, CURLOPT_PROXY        , $this->curl_proxy);
     }
-
     if( $type == "POST" ){
       curl_setopt($ch, CURLOPT_POST, 1);
-      if($params) curl_setopt( $ch, CURLOPT_POSTFIELDS, $params );
+	  // TODO 
+      //if($params) curl_setopt( $ch, CURLOPT_POSTFIELDS, $params );
+	  if ($params) curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query($params) );
+	  
     }
     if( $type == "DELETE" ){
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");

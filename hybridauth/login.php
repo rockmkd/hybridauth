@@ -12,11 +12,11 @@ session_start();
 
 require_once( "Hybrid/Auth.php" );
 //require_once( "Hybrid/Endpoint.php" );
-
 $config   = dirname(__FILE__) . '/config.php';
 $hybridauth = new Hybrid_Auth( $config );
 $kakao = $hybridauth->authenticate( "Kakao" );
 
 $data = $kakao -> getUserProfile();
+print_r( $data->profile);;
 //Hybrid_Endpoint::process();
 ?>

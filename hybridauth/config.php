@@ -10,12 +10,12 @@
 // ----------------------------------------------------------------------------------------
 return
 		array(
-			"base_url" => "http://hybridoauth.phpdev.com/index.php",
+			"base_url" => "http://172.16.216.126/hybridauth/hybridauth/index.php",
 			"providers" => array(
 				// openid providers
 				"Kakao" => array(
 					"enabled" => true,
-					"keys" => array("id" => "c0895dd5bdc20fd51f0dbcefbcd33526", "secret" => "^^")
+					"keys" => array("id" => "c0895dd5bdc20fd51f0dbcefbcd33526", "secret" => ".")
 				)
 			),
 			// If you want to enable logging, set 'debug_mode' to true.
@@ -24,5 +24,5 @@ return
 			// - "info" To log info and error messages (ignore debug messages)
 			"debug_mode" => false,
 			// Path to file writable by the web server. Required if 'debug_mode' is not false
-			"debug_file" => "./log",
+			"debug_file" => "/home/deploy/log",
 );
